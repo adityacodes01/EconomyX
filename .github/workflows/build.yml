@@ -1,0 +1,51 @@
+name: Build EconomyX
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21 (Gradle runtime)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up JDK 25 (compile toolchain)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+
+      - name: Set up Gradle (with caching)
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build
+        env:
+          JAVA_HOME: ${{ env.JAVA_HOME_21_X64 }}
+        run: >
+          ./gradlew build --stacktrace
+          -Porg.gradle.java.installations.fromEnv=JAVA_HOME_21_X64,JAVA_HOME_25_X64
+
+      - name: Upload built jar
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: economyx-jar
+          path: build/libs/*.jar
+          if-no-files-found: error
