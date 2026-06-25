@@ -1,0 +1,18 @@
+{
+  "itemGroup.economyx": "EconomyX",
+  "item.economyx.one_dollar_bill": "$1 Bill",
+  "item.economyx.five_dollar_bill": "$5 Bill",
+  "item.economyx.ten_dollar_bill": "$10 Bill",
+  "item.economyx.twenty_dollar_bill": "$20 Bill",
+  "item.economyx.fifty_dollar_bill": "$50 Bill",
+  "item.economyx.hundred_dollar_bill": "$100 Bill",
+  "item.economyx.credit_card": "Credit Card",
+  "block.economyx.atm": "ATM",
+  "block.economyx.cash_register": "Cash Register",
+  "block.economyx.currency_exchanger": "Currency Exchanger",
+  "subtitles.economyx.cash_register_open": "Cash register opens",
+  "item.economyx.wallet": "Wallet",
+  "item.economyx.atm": "ATM",
+  "item.economyx.cash_register": "Cash Register",
+  "item.economyx.currency_exchanger": "Currency Exchanger"
+}

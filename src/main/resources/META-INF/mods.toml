@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[65,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="economyx"
+version="1.0.0"
+displayName="EconomyX"
+authors="Aditya Gadre"
+description='''
+A realistic money and banking mod: dollar bills, ATMs, currency exchangers, cash registers and vaults.
+'''
+
+[[dependencies.economyx]]
+    modId="forge"
+    mandatory=true
+    versionRange="[65,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.economyx]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[26.2,)"
+    ordering="NONE"
+    side="BOTH"

@@ -1,0 +1,6 @@
+{
+  "cash_register_open": {
+    "subtitle": "subtitles.economyx.cash_register_open",
+    "sounds": [ "economyx:cash_register_open" ]
+  }
+}

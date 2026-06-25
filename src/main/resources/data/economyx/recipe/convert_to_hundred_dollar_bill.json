@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": ["economyx:fifty_dollar_bill", "economyx:fifty_dollar_bill"],
+  "result": { "id": "economyx:hundred_dollar_bill", "count": 1 }
+}

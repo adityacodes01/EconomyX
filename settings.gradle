@@ -1,0 +1,14 @@
+// ForgeGradle 7 is published on the Forge maven, NOT the Gradle plugin portal,
+// so it must be declared here for a clean CI checkout to resolve the plugin.
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven { url = 'https://maven.minecraftforge.net/' }
+    }
+}
+
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
+}
+
+rootProject.name = 'herobrineplus'

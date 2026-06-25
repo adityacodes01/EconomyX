@@ -1,0 +1,4 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": { "layer0": "economyx:item/fifty_dollar_bill" }
+}

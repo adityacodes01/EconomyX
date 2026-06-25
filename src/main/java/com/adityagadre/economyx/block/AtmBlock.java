@@ -1,0 +1,42 @@
+package com.adityagadre.economyx.block;
+
+import com.adityagadre.economyx.block.entity.AtmBlockEntity;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
+import org.jetbrains.annotations.Nullable;
+
+/**
+ * ATM — opens a custom banking screen (balance, deposit/withdraw). The balance is persisted in
+ * {@link AtmBlockEntity}; all the money logic lives in the menu.
+ */
+public class AtmBlock extends Block implements EntityBlock {
+
+    public AtmBlock(Properties properties) {
+        super(properties);
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new AtmBlockEntity(pos, state);
+    }
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
+                                               Player player, BlockHitResult hit) {
+        if (!level.isClientSide()
+                && level.getBlockEntity(pos) instanceof AtmBlockEntity atm
+                && player instanceof ServerPlayer serverPlayer) {
+            serverPlayer.openMenu(atm, pos);
+        }
+        return InteractionResult.SUCCESS;
+    }
+}
